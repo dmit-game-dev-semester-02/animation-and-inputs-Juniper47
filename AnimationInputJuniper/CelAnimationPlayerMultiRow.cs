@@ -8,9 +8,9 @@ namespace CelAnimation;
 /// Controls playback of a CelAnimationSequence.
 /// Note: a CelAnimationPlayer can only play ONE animation at a time.   
 /// </summary>
-public class CelAnimationPlayer
+public class CelAnimationPlayerMultiRow
 {
-    private CelAnimationSequence celAnimationSequence;
+    private CelAnimationSequenceMultiRow celAnimationSequence;
     private int celIndex;
     private float celTimeElapsed;
     private Rectangle celSourceRectangle;
@@ -18,7 +18,7 @@ public class CelAnimationPlayer
     /// <summary>
     /// Begins or continues playback of a CelAnimationSequence.
     /// </summary>
-    public void Play(CelAnimationSequence celAnimationSequence)
+    public void Play(CelAnimationSequenceMultiRow celAnimationSequence)
     {
         if (celAnimationSequence == null)
         {
@@ -28,6 +28,9 @@ public class CelAnimationPlayer
         if (celAnimationSequence != this.celAnimationSequence)
         {
             this.celAnimationSequence = celAnimationSequence;
+            //SITUATION ONE: MANY ROWS, ONE ANIMATION
+            //cellIndexColumn
+            //cellIndexRow
             celIndex = 0;
             celTimeElapsed = 0.0f;
 
@@ -53,6 +56,9 @@ public class CelAnimationPlayer
                 celTimeElapsed -= celAnimationSequence.CelTime;
 
                 // Advance the frame index looping as appropriate...
+                //SITUATION ONE: MANY ROWS, ONE ANIMATION
+                //celIndexColumn = (celIndex + 1) % celAnimationSequence.CelCount;
+                //celIndexRow = (celIndex + 1) % celAnimationSequence.CelCount;
                 celIndex = (celIndex + 1) % celAnimationSequence.CelCount;
 
                 celSourceRectangle.X = celIndex * celSourceRectangle.Width;

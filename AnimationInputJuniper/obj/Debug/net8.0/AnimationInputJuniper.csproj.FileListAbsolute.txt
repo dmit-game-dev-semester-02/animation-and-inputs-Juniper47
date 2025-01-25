@@ -26,3 +26,6 @@ C:\GitHub\DMIT1514\animation-and-inputs-Juniper47\AnimationInputJuniper\obj\Debu
 C:\GitHub\DMIT1514\animation-and-inputs-Juniper47\AnimationInputJuniper\obj\Debug\net8.0\AnimationInputJuniper.pdb
 C:\GitHub\DMIT1514\animation-and-inputs-Juniper47\AnimationInputJuniper\obj\Debug\net8.0\AnimationInputJuniper.genruntimeconfig.cache
 C:\GitHub\DMIT1514\animation-and-inputs-Juniper47\AnimationInputJuniper\obj\Debug\net8.0\ref\AnimationInputJuniper.dll
+C:\GitHub\DMIT1514\animation-and-inputs-Juniper47\AnimationInputJuniper\bin\Debug\net8.0\Content\Bob.xnb
+C:\GitHub\DMIT1514\animation-and-inputs-Juniper47\AnimationInputJuniper\bin\Debug\net8.0\Content\Idle.xnb
+C:\GitHub\DMIT1514\animation-and-inputs-Juniper47\AnimationInputJuniper\bin\Debug\net8.0\Content\Red.xnb

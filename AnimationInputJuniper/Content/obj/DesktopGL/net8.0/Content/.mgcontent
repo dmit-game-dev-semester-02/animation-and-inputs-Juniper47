@@ -4,10 +4,16 @@
   <Platform>DesktopGL</Platform>
   <Config />
   <SourceFiles>
+    <File>C:/GitHub/DMIT1514/animation-and-inputs-Juniper47/AnimationInputJuniper/Content/Bob.png</File>
     <File>C:/GitHub/DMIT1514/animation-and-inputs-Juniper47/AnimationInputJuniper/Content/Eous.png</File>
+    <File>C:/GitHub/DMIT1514/animation-and-inputs-Juniper47/AnimationInputJuniper/Content/Idle.png</File>
+    <File>C:/GitHub/DMIT1514/animation-and-inputs-Juniper47/AnimationInputJuniper/Content/Red.png</File>
     <File>C:/GitHub/DMIT1514/animation-and-inputs-Juniper47/AnimationInputJuniper/Content/SixthStreet.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
   </DestFiles>

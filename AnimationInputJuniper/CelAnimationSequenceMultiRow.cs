@@ -7,7 +7,7 @@ namespace CelAnimation;
 /// Represents a cel animated texture.
 /// //in other words, represents a spritesheet
 /// </summary>
-public class CelAnimationSequence
+public class CelAnimationSequenceMultiRow
 {
     // The texture containing the animation sequence...
     protected Texture2D texture;
@@ -25,13 +25,19 @@ public class CelAnimationSequence
     /// <summary>
     /// Constructs a new CelAnimationSequence.
     /// </summary>        
-    public CelAnimationSequence(Texture2D texture, int celWidth, float celTime)
+    public CelAnimationSequenceMultiRow(Texture2D texture, int celWidth, float celTime)
     {
         this.texture = texture;
         this.celWidth = celWidth;
         this.celTime = celTime;
 
+        //int rowToAnimate <-- many rows, many animations parameter
+        //this.celHeight = celHeight (has to be passed as a parameter)
         celHeight = Texture.Height;
+
+        //SITUATION 1: ONE ANIMATION, MULTIPLE ROWS
+        //celColumnCount = Texture.Width / celWidth;
+        //celRowCount = Texture.Height / celeight;
         celCount = Texture.Width / celWidth;
     }
 
