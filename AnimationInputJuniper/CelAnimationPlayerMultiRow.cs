@@ -13,7 +13,7 @@ public class CelAnimationPlayerMultiRow
     private CelAnimationSequenceMultiRow celAnimationSequence;
     private int celIndex;
     private float celTimeElapsed;
-    private Rectangle celSourceRectangle;
+    public Rectangle celSourceRectangle;
 
     /// <summary>
     /// Begins or continues playback of a CelAnimationSequence.

@@ -14,7 +14,10 @@ public class AnimationInput : Game
     private const int _WindowWidth = 640;
     private CelAnimationPlayer _idlePlayer, _bobPlayer;
     private CelAnimationSequence _personIdle, _bobRunning;
-    private float _bobX = 200, _bobSpeed = 1;
+    private CelAnimationPlayerMultiRow _multiRedPlayer;
+    private CelAnimationSequenceMultiRow _multiRed;
+
+    private float _bobX = 200, _bobSpeed = 1, _redX, _redY, _redSpeedX = 1, _redSpeedY = 1;
     private bool _bobRight = true;
     public AnimationInput()
     {
@@ -50,6 +53,12 @@ public class AnimationInput : Game
         _bobPlayer = new CelAnimationPlayer();
         _bobPlayer.Play(_bobRunning);
 
+        Texture2D redSpriteSheet = Content.Load<Texture2D>("Red");
+        _multiRed = new CelAnimationSequenceMultiRow(redSpriteSheet, 64, 1 / 6f, 2);
+        _multiRedPlayer = new CelAnimationPlayerMultiRow();
+        _multiRedPlayer.Play(_multiRed);
+
+
     }
 
     protected override void Update(GameTime gameTime)
@@ -65,8 +74,6 @@ public class AnimationInput : Game
             _bobRight = !_bobRight;
         }
 
-
-
         if (_bobX > 500)
         {
             _bobX = 500;
@@ -78,6 +85,32 @@ public class AnimationInput : Game
         else
         {
             _bobX += _bobSpeed;
+        }
+
+        _multiRedPlayer.Update(gameTime);
+        if (kbCurrentState.IsKeyDown(Keys.S))
+        {
+            _multiRedPlayer.celSourceRectangle.Y = 0;
+            _redY += _redSpeedY;
+            if (_redSpeedY < 0) _redSpeedY *= -1;
+        }
+        if (kbCurrentState.IsKeyDown(Keys.A))
+        {
+            _multiRedPlayer.celSourceRectangle.Y = 64;
+            _redX += _redSpeedX;
+            if (_redSpeedX > 0) _redSpeedX *= -1;
+        }
+        if (kbCurrentState.IsKeyDown(Keys.D))
+        {
+            _multiRedPlayer.celSourceRectangle.Y = 128;
+            _redX += _redSpeedX;
+            if (_redSpeedX < 0) _redSpeedX *= -1;
+        }
+        if (kbCurrentState.IsKeyDown(Keys.W))
+        {
+            _multiRedPlayer.celSourceRectangle.Y = 194;
+            _redY += _redSpeedY;
+            if (_redSpeedY > 0) _redSpeedY *= -1;
         }
 
 
@@ -109,8 +142,12 @@ public class AnimationInput : Game
         {
             _bobPlayer.Draw(_spriteBatch, new Vector2(_bobX, 100), SpriteEffects.FlipHorizontally);
         }
-        _spriteBatch.End();
 
+        //red pokemon guy
+        _multiRedPlayer.Draw(_spriteBatch, new Vector2(_redX, _redY), SpriteEffects.None);
+
+
+        _spriteBatch.End();
         base.Draw(gameTime);
     }
 }
